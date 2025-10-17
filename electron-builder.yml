@@ -1,0 +1,45 @@
+appId: com.mcxiv1.multimessenger
+productName: MultiMessenger
+directories:
+  output: release
+  buildResources: resources
+
+# ВАЖНО: включаем node_modules, иначе в проде не найдутся electron-updater и др.
+files:
+  - dist/**
+  - package.json
+  - node_modules/**
+
+extraResources:
+  - from: recipes
+    to: recipes
+  - from: resources/sounds
+    to: sounds
+  - from: resources/icons
+    to: icons
+
+win:
+  icon: resources/icon.ico
+  target:
+    - nsis
+    - portable
+  artifactName: "${productName}-${version}-${arch}-${target}.${ext}"
+
+nsis:
+  oneClick: true
+  perMachine: false
+  allowElevation: true
+  allowToChangeInstallationDirectory: false
+  createDesktopShortcut: true
+  createStartMenuShortcut: true
+  runAfterFinish: true
+
+mac:
+  category: public.app-category.productivity
+  icon: resources/icon.icns
+  target: [dmg, zip]
+
+linux:
+  icon: resources/icons
+  target: [AppImage, deb]
+  category: Network

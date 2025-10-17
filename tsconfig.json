@@ -1,0 +1,23 @@
+{
+  "compilerOptions": {
+    "target": "ES2022",
+    "module": "CommonJS",
+    "lib": ["ES2022", "DOM"],
+    "moduleResolution": "Node",
+    "rootDir": "src",
+    "outDir": "dist",
+    "resolveJsonModule": true,
+    "esModuleInterop": true,
+    "strict": true,
+    "skipLibCheck": true,
+    "jsx": "react-jsx",
+    "types": ["node", "electron"]
+  },
+  "include": [
+    "src/main/**/*.ts",
+    "src/main/**/*.tsx",
+    "src/common/**/*.ts",
+    "src/common/**/*.tsx"
+  ],
+  "exclude": ["src/renderer/**/*", "release", "dist"]
+}

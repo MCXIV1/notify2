@@ -1,0 +1,39 @@
+{
+  "name": "multi-messenger",
+  "version": "0.1.0",
+  "private": true,
+  "description": "MultiMessenger desktop app (Electron + React)",
+  "main": "dist/main/main.js",
+  "author": "",
+  "license": "MIT",
+  "scripts": {
+    "watch:main": "tsc -w -p tsconfig.json",
+    "dev": "concurrently -k -n MAIN,VITE,ELECTRON -c cyan,magenta,green \"npm:watch:main\" \"vite\" \"wait-on dist/main/main.js http://localhost:5173 && cross-env VITE_DEV_SERVER_URL=http://localhost:5173 electron .\"",
+    "build": "rimraf dist && tsc -p tsconfig.json && vite build",
+    "start": "electron .",
+    "dist": "npm run build && electron-builder",
+    "clean": "rimraf dist release"
+  },
+  "dependencies": {
+    "electron-updater": "^6.3.9",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "imapflow": "^1.0.145",
+    "mailparser": "^3.7.2",
+    "nodemailer": "^6.9.14"
+  },
+  "devDependencies": {
+    "@types/node": "^22.7.4",
+    "@types/react": "^18.3.3",
+    "@types/react-dom": "^18.3.0",
+    "@vitejs/plugin-react": "^4.3.3",
+    "concurrently": "^9.0.1",
+    "cross-env": "^7.0.3",
+    "electron": "^31.3.1",
+    "electron-builder": "^25.1.8",
+    "rimraf": "^6.0.1",
+    "typescript": "^5.5.4",
+    "vite": "^5.4.6",
+    "wait-on": "^8.0.0"
+  }
+}

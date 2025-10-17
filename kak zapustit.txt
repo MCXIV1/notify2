@@ -1,0 +1,20 @@
+messenger_hub_py/
+├── main.py
+├── notif_popup.py
+├── settings.py
+├── assets/
+│   ├── notify.wav
+│   ├── notify.gif
+
+
+
+python main.py
+cd "C:\Users\PC-31\Documents\PROJ NOTIFY2 
+npm install
+npm start
+
+
+
+npm i
+npm run dev
+http://localhost:5173/
