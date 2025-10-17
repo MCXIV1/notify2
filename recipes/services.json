@@ -1,0 +1,50 @@
+[
+  {
+    "id": "whatsapp",
+    "name": "WhatsApp Web",
+    "type": "messaging",
+    "url": "https://web.whatsapp.com/",
+    "allowPopups": true,
+    "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/116.0.0.0 Safari/537.36",
+    "permissions": { "notifications": true },
+    "unreadEval": "(() => { let total=0; try{ document.querySelectorAll('span[data-testid=\"icon-unread-count\"], div[aria-label*=\"unread\" i], span[aria-label*=\"unread\" i]').forEach(el=>{ const t=(el.textContent||'').replace(/\\D+/g,''); const n=parseInt(t,10); if(!isNaN(n)) total+=n; }); if(total===0){ document.querySelectorAll('[data-testid=\"cell-frame-container\"] span:not(:empty)').forEach(el=>{ const t=(el.textContent||'').replace(/\\D+/g,''); const n=parseInt(t,10); if(!isNaN(n)) total+=n; }); } }catch(e){} const m=document.title.match(/\\((\\d+)\\)/); if(m){ const v=parseInt(m[1],10); if(!isNaN(v)) total=Math.max(total,v); } return total; })()"
+  },
+  {
+    "id": "telegram",
+    "name": "Telegram Web",
+    "type": "messaging",
+    "url": "https://web.telegram.org/k/",
+    "permissions": { "notifications": true },
+    "unreadEval": "(() => { let n=0; try{ document.querySelectorAll('[data-peer-id] .badge, .badge.unread, .rp .unread').forEach(el=>{ const t=(el.textContent||'').replace(/\\D+/g,''); const v=parseInt(t,10); if(!isNaN(v)) n+=v; }); }catch(e){} const m=document.title.match(/\\((\\d+)\\)/); if(m){ const v=parseInt(m[1],10); if(!isNaN(v)) n=Math.max(n,v); } return n; })()"
+  },
+  {
+    "id": "instagram",
+    "name": "Instagram",
+    "type": "messaging",
+    "url": "https://www.instagram.com/",
+    "permissions": { "notifications": true },
+    "unreadEval": "(() => { let n=0; try{ const a=document.querySelector('a[href=\"/direct/inbox/\"]'); if(a){ const b=a.querySelector('span, div'); if(b){ const v=parseInt((b.textContent||'').replace(/\\D+/g,'')||'0',10); if(!isNaN(v)) n=v; } } }catch(e){} return n; })()"
+  },
+  {
+    "id": "gmail",
+    "name": "Gmail",
+    "type": "email",
+    "url": "https://mail.google.com/",
+    "permissions": { "notifications": true },
+    "unreadEval": "(() => { const m=document.title.match(/\\((\\d+)\\)/); return m?parseInt(m[1],10):0; })()"
+  },
+  {
+    "id": "outlook",
+    "name": "Outlook Web",
+    "type": "email",
+    "url": "https://outlook.live.com/mail/",
+    "permissions": { "notifications": true },
+    "unreadEval": "(() => { const m=document.title.match(/\\((\\d+)\\)/); return m?parseInt(m[1],10):0; })()"
+  },
+  {
+    "id": "email-imap",
+    "name": "Email (IMAP, built‑in)",
+    "type": "email",
+    "builtin": "imap"
+  }
+]
